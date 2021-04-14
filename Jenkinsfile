@@ -6,6 +6,11 @@ pipeline {
   }
   agent any
   stages {
+    stage('CleanWorkspace') {
+      steps {
+        cleanWs()
+      }
+    }
     stage('Cloning Git') {
       steps {
         git 'https://github.com/rcastelani/k8s-lab.git'
