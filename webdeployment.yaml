@@ -1,5 +1,3 @@
----
-#appdeploy
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -20,21 +18,3 @@ spec:
       - name: mynginx
         image: nginx
         imagePullPolicy: Always
-
----
-#service
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    app: mynginx
-  name: mynginx
-spec:
-  ports:
-  - nodePort: 32223
-    port: 80
-    protocol: TCP
-    targetPort: 80
-  selector:
-    app: mynginx
-  type: NodePort
